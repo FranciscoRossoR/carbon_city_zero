@@ -1,7 +1,7 @@
 import { Badge, Box, Button, Center, FlexProps, HStack, Spacer } from "@chakra-ui/react"
 import { reaction } from "mobx"
 import { observer } from "mobx-react"
-import gameState, { callUpdateLandfillPile, callUpdatePlayers, callUpdateWinner } from "pages/store"
+import gameState, { callUpdateLandfillPile, callUpdatePlayers, callUpdateWinner } from "src/store/store"
 import React from "react"
 import PlayingCard from 'src/components/PlayingCard'
 import { SpecialRule } from "src/entities/carboncityzero/carbonCityZeroCard"

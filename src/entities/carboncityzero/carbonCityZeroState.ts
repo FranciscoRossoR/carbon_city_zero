@@ -7,7 +7,7 @@ import ComplexityAnalyst from "framework/entities/complexityAnalyst";
 import { action, computed, makeObservable, observable, override } from "mobx";
 import { BuyAction, PassAction, ReadyAction } from "./actions";
 import { CarbonCityZeroCard, LinkAbility, Sector, SpecialRule } from "./carbonCityZeroCard";
-import { callUpdateMarketDeck } from "pages/store";
+import { callUpdateMarketDeck } from "src/store/store";
 
 export type Phase = "ready" | "activating" | "buying"
 

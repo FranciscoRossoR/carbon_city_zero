@@ -2,7 +2,7 @@ import Player from "framework/entities/player";
 import { action, makeObservable, observable, override } from "mobx";
 import CardHolder from "framework/entities/cardholder";
 import { CarbonCityZeroCard, LinkAbility, Sector, SpecialRule } from "./carbonCityZeroCard";
-import gameState from "pages/store";
+import gameState from "src/store/store";
 
 export enum Status {
     Regular = 0,
