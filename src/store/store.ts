@@ -10,7 +10,8 @@ import OrderedCardHolder from 'framework/entities/orderedcardholder';
 
 // Manage connection
 
-const socket = io('http://localhost:8080')
+const socket = io(process.env.NEXT_PUBLIC_SOCKET_URL || 'http://localhost:3000')
+
 socket.on('connect', () => {
     // Report connection
     console.log(`You connected with id: ${socket.id}`)
