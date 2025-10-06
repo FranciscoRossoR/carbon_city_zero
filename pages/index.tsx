@@ -2,7 +2,7 @@ import { observer } from "mobx-react"
 import Head from "next/head"
 import React from "react"
 
-import gameState from 'pages/store'
+import gameState from 'src/store/store'
 import { Flex } from "@chakra-ui/react"
 import HeadingPanel from "src/components/layout/HeadingPanel"
 import SummaryPanel from "src/components/layout/SummaryPanel"

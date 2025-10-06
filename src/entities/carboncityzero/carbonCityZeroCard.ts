@@ -1,6 +1,6 @@
 import Card, { ICard } from "framework/entities/card";
 import { makeObservable, observable, action, computed } from "mobx";
-import gameState from "pages/store";
+import gameState from "src/store/store";
 import { Search, Status } from "./carbonCityZeroPlayer";
 
 export enum Sector {

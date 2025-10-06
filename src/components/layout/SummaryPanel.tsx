@@ -1,7 +1,7 @@
 import { Box, Button, Center, Flex, HStack, useDimensions } from "@chakra-ui/react";
 import Player from "framework/entities/player";
 import { observer } from "mobx-react";
-import gameState, { callUpdateGlobalSlot, callUpdateLandfillPile, callUpdateMarketDeck, callUpdateMarketplace, callUpdatePhase, callUpdatePlayers, callUpdateStatus, callUpdateTurn } from "pages/store";
+import gameState, { callUpdateGlobalSlot, callUpdateLandfillPile, callUpdateMarketDeck, callUpdateMarketplace, callUpdatePhase, callUpdatePlayers, callUpdateStatus, callUpdateTurn } from "src/store/store";
 import React, { RefObject, useRef } from "react";
 import PlayerProfile from "../PlayerProfile";
 import CarbonCityZeroPlayer from "src/entities/carboncityzero/carbonCityZeroPlayer";
