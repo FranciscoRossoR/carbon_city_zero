@@ -89,6 +89,7 @@ export default observer(class MarketPanel extends React.Component<IMarketPanelPr
                                     if (canBeBought) {
                                         if (player.status === Status.LandfillMarketCard) {
                                             c.landfillMarketCard()
+                                            callUpdateLandfillPile(gameState.landfillPile)
                                         } else {
                                             gameState.buyCard(c)
                                         }
