@@ -1,23 +1,37 @@
-const io = require('socket.io')(8080, {
-    cors: {
-        origin: ['http://localhost:3000'],
-    },
-});
+const { createServer } = require('http')
+const { Server } = require('socket.io')
+const next = require('next')
 
-const updateTypes = new Map();
+const app = next({ dev: process.env.NODE_ENV !== 'production'})
+const handle = app.getRequestHandler()
 
-io.on('connection', (socket) => {
+const PORT = process.env.PORT || 3000
 
-    console.log(socket.id);
+app.prepare().then(() => {
 
-    socket.on('loadUpdateTypes', (types) => {
-        for (const [key, value] of Object.entries(types)) {
-            updateTypes.set(key, value);
-        }
-    });
+    const httpServer = createServer(async(req, res) => {
+        handle(req, res)
+    })
+    const io = new Server(httpServer, { cors: { origin: '*' }})
 
-    socket.on('callUpdate', (key, update) => {
-        io.emit(updateTypes.get(key), update);
-    });
+    const updateTypes = new Map()
 
-});
+    io.on('connection', (socket) => {
+
+        console.log('User connected:', socket.id)
+
+        socket.on('loadUpdateTypes', (types) => {
+            for (const [key, value] of Object.entries(types)) {
+                updateTypes.set(key, value)
+            }
+        })
+
+        socket.on('callUpdate', (key, update) => {
+            io.emit(updateTypes.get(key), update)
+        })
+
+    })
+
+    httpServer.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+
+})

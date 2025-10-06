@@ -1,6 +1,6 @@
 import { FlexProps, Heading, Text, VStack } from "@chakra-ui/react";
 import { observer } from "mobx-react";
-import gameState from "pages/store";
+import gameState from "src/store/store";
 import React from "react";
 
 type IHeadingProps = {} & FlexProps;

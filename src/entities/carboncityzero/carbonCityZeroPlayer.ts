@@ -2,8 +2,7 @@ import Player from "framework/entities/player";
 import { action, makeObservable, observable, override } from "mobx";
 import CardHolder from "framework/entities/cardholder";
 import { CarbonCityZeroCard, LinkAbility, Sector, SpecialRule } from "./carbonCityZeroCard";
-import gameState from "pages/store";
-import { playerStartingDeck } from "pages/cardStore";
+import gameState from "src/store/store";
 
 export enum Status {
     Regular = 0,
@@ -212,3 +211,39 @@ export default class CarbonCityZeroPlayer extends Player {
     }
 
 }
+
+
+// STARTING DECK
+
+// Create Player Starting Cards
+//  co  i   ca  sector              special rule                            link ability
+const budget = new CarbonCityZeroCard(
+    "Budget",
+    1,  1,  0,  Sector.Starter
+)
+const globalMarkets = new CarbonCityZeroCard(
+    "Global Markets",
+    1,  1,  1,  Sector.Starter,     SpecialRule.LandfillMarketCard
+)
+const poorHousingStock = new CarbonCityZeroCard(
+    "Poor Housing Stock",
+    0,  0,  1,  Sector.Snag
+)
+const remoteProperties = new CarbonCityZeroCard(
+    "Remote Properties",
+    0,  0,  0,  Sector.Snag
+)
+
+// Create Player Starting Deck
+const playerStartingDeck = new CardHolder<CarbonCityZeroCard>()
+playerStartingDeck.addCards([
+    budget,
+    budget,
+    budget,
+    budget,
+    budget,
+    globalMarkets,
+    globalMarkets,
+    poorHousingStock,
+    remoteProperties
+])

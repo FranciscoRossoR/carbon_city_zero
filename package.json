@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node framework/server/index.js",
     "lint": "next lint",
     "server": "node --watch ./framework/server/index.js"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.8.6",
+    "@chakra-ui/utils": "^2.2.2",
     "mobx": "^6.4.2",
     "mobx-react": "^7.3.0",
     "mobx-react-lite": "^3.3.0",
